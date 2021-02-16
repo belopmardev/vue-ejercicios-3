@@ -22,7 +22,7 @@
         <tr v-for="(stock, i) in stock" :key="i">
           <td>{{ i +1 }}</td>
           <td><input class="input-edit" type="text" v-model="stock.concepto"></td>
-          <td><input class="input-edit" type="number" min="0" step="0.5" v-model="stock.precio"></td>
+          <td><input class="input-edit" type="number" min="0" step="0.01" v-model="stock.precio"></td>
           <td><input type="number" min="0" step="1" v-model="stock.cantidad"></td>
           <td>
             {{ subTotal(stock.precio, stock.cantidad) }} €
