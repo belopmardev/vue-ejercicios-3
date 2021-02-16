@@ -58,10 +58,6 @@ export default {
 
 <style scoped lang="scss">
 
-.container{
-  
-}
-
 .reactividad {
   background: #42b983;
   width: 60%;
