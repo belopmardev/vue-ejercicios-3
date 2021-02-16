@@ -1,7 +1,11 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/ejemplo3">Ejemplo 3</router-link> |
+    <router-link to="/ejemplo4">Ejemplo 4</router-link> |
+    <router-link to="/ejemplo6">Ejemplo 6</router-link> |
+    <router-link to="/ejemplo7">Ejemplo 7</router-link> |
+    <router-link to="/ejemplo8">Ejemplo 8</router-link>
   </div>
   <router-view/>
 </template>
@@ -27,4 +31,5 @@
     }
   }
 }
+
 </style>
