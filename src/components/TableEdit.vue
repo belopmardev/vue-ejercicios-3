@@ -22,7 +22,7 @@
         <tr v-for="(stock, i) in stock" :key="i">
           <td>{{ i +1 }}</td>
           <td><input class="input-edit" type="text" v-model="stock.concepto"></td>
-          <td><input class="input-edit" type="number" min="0" step="0.01" v-model="stock.precio"></td>
+          <td><input class="input-edit" type="number" min="0" step="0.5" v-model="stock.precio"></td>
           <td><input type="number" min="0" step="1" v-model="stock.cantidad"></td>
           <td>
             {{ subTotal(stock.precio, stock.cantidad) }} €
@@ -138,7 +138,7 @@ input:focus{
 }
 
 input:invalid{
-  background: red;
+  background: #9E1A1A;
   box-shadow: none;
 }
 
@@ -148,6 +148,18 @@ td input:invalid{
 
 td input{
   background: transparent;
+}
+
+td input[type="number"]{
+width: 80px;
+}
+
+td input[type="text"]{
+text-align: left;
+}
+
+.input-container input[type="number"]{
+width: 80px;
 }
 
 .input-edit{
@@ -206,11 +218,13 @@ table.table tfoot {
   background: #42b983;
   border-top: 0px solid #333333;
 }
+
 table.table tfoot td {
   font-size: 20px;
   text-align: right;
-  padding: 0.5rem;
+  padding: 0.25rem;
 }
+
 .btn {
   background-color: #2C3E50;
   border: none;
@@ -229,14 +243,6 @@ table.table tfoot td {
 
 .btn-danger{
   background-color: #9E1A1A;
-}
-
-td input[type="number"]{
-width: 80px;
-}
-
-.input-container input[type="number"]{
-width: 80px;
 }
 
 </style>
