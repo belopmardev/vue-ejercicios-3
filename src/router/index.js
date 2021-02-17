@@ -6,6 +6,8 @@ import Ejemplo5 from '../views/Ejemplo5.vue'
 import Ejemplo6 from '../views/Ejemplo6.vue'
 import Ejemplo7 from '../views/Ejemplo7.vue'
 import Ejemplo8 from '../views/Ejemplo8.vue'
+import Ejemplo9 from '../views/Ejemplo9.vue'
+import Ejemplo10 from '../views/Ejemplo10.vue'
 
 const routes = [
   {
@@ -42,6 +44,16 @@ const routes = [
     path: '/ejemplo8',
     name: 'Ejemplo8',
     component: Ejemplo8
+  },
+  {
+    path: '/ejemplo9',
+    name: 'Ejemplo9',
+    component: Ejemplo9
+  },
+  {
+    path: '/ejemplo10',
+    name: 'Ejemplo10',
+    component: Ejemplo10
   }
 ]
 

@@ -33,7 +33,7 @@
       <tfoot>
         <tr>
           <td colspan="6">
-            Total: {{ total }} €
+            Total: {{ total }}
           </td>
         </tr>
       </tfoot>
@@ -142,9 +142,6 @@ input:invalid{
   box-shadow: none;
 }
 
-td input:invalid{
-  background: transparent;
-}
 
 td input{
   background: transparent;
