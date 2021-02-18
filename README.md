@@ -8,7 +8,7 @@ En este repositorio encontrarás algunos de mis ejercicios para desarrollar una 
 * Un componente **Tabla Input** que nos permite introducir nuevas prendas y que calcula el importe de manera automática
 * Un componente **Tabla Editable** que nos permite introducir nuevas prendas y modificar los datos de las ya existentes y que calcula el importe de manera automática
 * Un componente **User** en el que mediante "select" se nos muestran imágenes e información de los diferentes usuarios
-* Un componente **Mapa**, con datos dinámicos JSON de los diferentes municipios de España suministrados por una API rest.
+* Un componente **Meteo**, con datos dinámicos JSON de los diferentes municipios de España suministrados por una API rest.
 
 ## Instrucciones para desplegarlo en la máquina local
 

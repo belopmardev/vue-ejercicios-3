@@ -9,7 +9,9 @@
         {{user.nombre}} - {{user.alt}}
       </option>
     </select>
-    <img class= "avatar" :src="seleccionado" :alt="seleccionado">
+      <div class="avatar">
+        <img :src="seleccionado" :alt="seleccionado">
+      </div>
   </div>
 </div>
 </div>
@@ -54,7 +56,11 @@ export default {
 }
 
 .avatar {
-  width: 15%;
-}
+  margin: 1.5rem;
+  img {
+    width: 15%;
+    }
+  }
+  
 
 </style>
