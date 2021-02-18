@@ -9,8 +9,12 @@
         {{user.nombre}} - {{user.alt}}
       </option>
     </select>
-      <div class="avatar">
+      <div v-if="seleccionado" class="avatar">
         <img :src="seleccionado" :alt="seleccionado">
+      </div>
+      <div v-else class="avatar">
+        <img src="@/assets/avatarw.svg" alt="Avatar de mujer">
+        <img src="@/assets/avatarm.svg" alt=" Avatar de hombre">
       </div>
   </div>
 </div>
