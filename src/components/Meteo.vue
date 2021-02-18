@@ -6,8 +6,8 @@
         <label for="provincia">Provincia</label>
         <div class="select">
           <select v-model="provincia" @change="verMunicipios">
-            <option v-for="(prov, i) in provincias" :key="i" :value="prov.CODPROV">
-              {{ prov.NOMBRE_PROVINCIA }} - {{ prov.CODPROV }}
+            <option v-for="(provincia, i) in provincias" :key="i" :value="provincia.CODPROV">
+              {{ provincia.NOMBRE_PROVINCIA }} - {{ provincia.CODPROV }}
             </option>
           </select>
           <div class="select_arrow"></div>
@@ -15,11 +15,17 @@
         <label for="municipio">Municipio</label>
         <div class="select">
           <select v-model="municipio" @change="verInfo">
-            <option v-for="(muni, i) in municipios" :key="i">
-              {{ muni.NOMBRE }}
+            <option v-for="(municipio, i) in municipios" :key="i" :value="municipio.COD_GEO">
+              {{ municipio.NOMBRE }}
             </option>
           </select>
           <div class="select_arrow"></div>
+        </div>
+        <div v-if="info.datos">
+            Información del municipio <b>{{info.datos.municipio.NOMBRE}}</b>
+            <div class="api-data">Altitud: {{info.datos.municipio.ALTITUD}}</div>
+            <div class="api-data">Latitud: {{info.datos.municipio.LATITUD_ETRS89_REGCAN95}}</div>
+            <div class="api-data">Latitud: {{info.datos.municipio.LONGITUD_ETRS89_REGCAN95}}</div>
         </div>
       </div>
     </div>
@@ -41,11 +47,12 @@ export default {
     let provincia = ref("");
     let municipios = reactive([]);
     let municipio = ref("");
+    let info = reactive([])
 
     fetch("https://www.el-tiempo.net/api/json/v2/provincias")
       .then((res) => res.json())
       .then((datos) => {
-        datos.provincias.forEach((provincia) => {
+        datos.provincias.forEach(provincia => {
           provincias.push(provincia);
         });
       });
@@ -57,11 +64,20 @@ export default {
         .then((res) => res.json())
         .then((datos) => {
           municipios.splice(0);
-          datos.municipios.forEach((municipio) => {
+          datos.municipios.forEach(municipio => {
             municipios.push(municipio);
           });
         });
     };
+
+    const verInfo = () =>{
+        fetch(`https://www.el-tiempo.net/api/json/v2/provincias/${municipio.value}/municipios/${municipio.value}`)
+        .then(res=>res.json())
+        .then(datos=>{
+            info.datos=datos
+            console.log(datos)
+        })
+    }
 
     return {
       provincias,
@@ -69,6 +85,8 @@ export default {
       verMunicipios,
       municipios,
       municipio,
+      verInfo,
+      info
     };
   },
 };
@@ -82,6 +100,12 @@ export default {
 .column {
   margin: 0 auto;
   width: 60%;
+}
+
+.column.api-data{
+display: flex;
+ width: 30%;
+ text-align: left;
 }
 
 .select {
